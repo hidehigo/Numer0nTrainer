@@ -1,10 +1,11 @@
   class Marker
     def initialize(secret, guess)
       @secret , @guess = secret, guess
+      @len = @secret.length - 1
     end
 
     def exact_match_count
-      (0..3).inject(0) do |count, index|
+      (0..@len).inject(0) do |count, index|
         count + ( exact_match?(index) ? 1 : 0 )
       end
     end
