@@ -32,6 +32,7 @@ When /^I guess "([^"]*)"$/ do |guess|
   @game.guess(guess)
 end
 
-Then /^the mark should be "([^"]*)"$/ do |mark|
+Then /^the mark should be "(\d) eat (\d) byte"$/ do |eat, bite|
+  mark = eat.to_s + bite.to_s
   output.messages.should include(mark)
 end
